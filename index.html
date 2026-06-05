@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Professional Portfolio of Chung Yi Chen (Tomas), a Graphic and UI/UX Designer. Fusing branding, e-commerce visual solutions, and interactive art.">
+  <title>Tomas Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- DYNAMIC AMBIENT BACKDROP -->
+  <div class="ambient-glows">
+    <div class="glow-blob glow-1"></div>
+    <div class="glow-blob glow-2"></div>
+    <div class="glow-blob glow-3"></div>
+  </div>
+
+
+  <!-- HERO SECTION — Scroll-Scrubbed Canvas Animation -->
+  <section id="hero" class="hero-canvas-section">
+    <div class="hero-canvas-sticky">
+      <canvas id="hero-canvas"></canvas>
+      <div class="hero-canvas-overlay">
+        <div id="scroll-hint" class="scroll-hint">
+          <span>Scroll</span>
+          <div class="scroll-hint-line"></div>
+        </div>
+      </div>
+
+      <!-- Marquee Ticker TOP — scrolls right -->
+      <div class="marquee-ticker marquee-ticker--top" role="marquee" aria-label="Skills">
+        <div class="marquee-ticker__track" data-direction="right">
+          <span class="marquee-ticker__item">Designer</span>
+          <span class="marquee-ticker__sep">✦</span>
+          <span class="marquee-ticker__item">Learner</span>
+          <span class="marquee-ticker__sep">✦</span>
+          <span class="marquee-ticker__item">Hard worker</span>
+          <span class="marquee-ticker__sep">✦</span>
+        </div>
+      </div>
+
+      <!-- Marquee Ticker BOTTOM — scrolls left -->
+      <div class="marquee-ticker" role="marquee" aria-label="Skills and availability">
+        <div class="marquee-ticker__track" data-direction="left">
+          <span class="marquee-ticker__item">Designer</span>
+          <span class="marquee-ticker__sep">✦</span>
+          <span class="marquee-ticker__item">Learner</span>
+          <span class="marquee-ticker__sep">✦</span>
+          <span class="marquee-ticker__item">Hard worker</span>
+          <span class="marquee-ticker__sep">✦</span>
+        </div>
+        <span class="item-link" aria-hidden="true"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <h1 class="hero-title">Visual designer and<br>UI<svg class="title-divider" viewBox="0 0 72 82" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M19.5 62.9824C10.5 66.7862 9.5 76.0834 7.5 82H0C5 60.0241 15 15.3117 15 12.2689C15 9.22612 13.5 9.73325 6 16.0722L0 11.0009C9 2.12607 24 -4.2129 42 3.39391C57.0002 9.73299 69 2.12598 72 0.858138C70.5 3.39381 60.1367 11.3849 52.5 13.5365C43.5 16.0722 46.5 24.9471 48 33.8219C49.5 42.6968 51.4917 52.1403 43.5 56.6432C34.5 61.7144 26.341 60.0912 19.5 62.9824Z"
+                fill="currentColor" />
+            </svg>UX
+            research</h1>
+          <p class="hero-description">
+            8+ years of experience, specializing in visual communication. I create engaging designs using modern tools
+            and focus on enhancing user experience.
+          </p>
+          <div class="skill-icons-row">
+            <img src="icons/skill-icons_illustrator.svg" alt="Adobe Illustrator" class="skill-icon">
+            <img src="icons/skill-icons_photoshop.svg" alt="Adobe Photoshop" class="skill-icon">
+            <img src="icons/skill-icons_ndesign.svg" alt="Adobe InDesign" class="skill-icon">
+            <img src="icons/skill-icons_figma-dark.svg" alt="Figma" class="skill-icon">
+            <img src="icons/skill-icons_figma-dark-1.svg" alt="Gemini" class="skill-icon">
+            <img src="icons/skill-icons_slack.svg" alt="Slack" class="skill-icon">
+          </div>
+        </div>
+
+        <!-- Technical Expertise (Right Side) -->
+        <div class="hero-skills-sidebar">
+          <div class="skills-grid">
+            <!-- Card 1: UI / UX Design -->
+            <div class="glass-panel skill-card">
+              <div class="skill-radial-wrap">
+                <svg class="skill-radial-svg" viewBox="0 0 100 100">
+                  <circle class="skill-radial-bg" cx="50" cy="50" r="45"></circle>
+                  <circle class="skill-radial-progress" cx="50" cy="50" r="45" data-percent="80"></circle>
+                </svg>
+                <div class="skill-radial-text">80%</div>
+              </div>
+              <h4>UI / UX Design</h4>
+              <p>Wireframing, user journeys, low-to-high fidelity prototyping, and focus on enhancing user experience.
+              </p>
+              <div class="skill-tags">
+                <span>Figma</span>
+                <span>User Research</span>
+                <span>Wireframes</span>
+              </div>
+            </div>
+
+            <!-- Card 2: Graphic & Branding -->
+            <div class="glass-panel skill-card">
+              <div class="skill-radial-wrap">
+                <svg class="skill-radial-svg" viewBox="0 0 100 100">
+                  <circle class="skill-radial-bg" cx="50" cy="50" r="45"></circle>
+                  <circle class="skill-radial-progress" cx="50" cy="50" r="45" data-percent="90"></circle>
+                </svg>
+                <div class="skill-radial-text">90%</div>
+              </div>
+              <h4>Graphic &amp; Branding</h4>
+              <p>Creating brand visual identities, vector illustrations, logo gestures, and holistic marketing systems.
+              </p>
+              <div class="skill-tags">
+                <span>Illustrator</span>
+                <span>Photoshop</span>
+                <span>Branding</span>
+              </div>
+            </div>
+
+            <!-- Card 3: Layout & Typography -->
+            <div class="glass-panel skill-card">
+              <div class="skill-radial-wrap">
+                <svg class="skill-radial-svg" viewBox="0 0 100 100">
+                  <circle class="skill-radial-bg" cx="50" cy="50" r="45"></circle>
+                  <circle class="skill-radial-progress" cx="50" cy="50" r="45" data-percent="85"></circle>
+                </svg>
+                <div class="skill-radial-text">85%</div>
+              </div>
+              <h4>Layout &amp; Typography</h4>
+              <p>Structuring multi-page brochures, print flyers, retail catalogs, and packaging vector templates.</p>
+              <div class="skill-tags">
+                <span>InDesign</span>
+                <span>Page Making</span>
+                <span>Print Design</span>
+              </div>
+            </div>
+
+            <!-- Card 4: Marketing & Ads -->
+            <div class="glass-panel skill-card">
+              <div class="skill-radial-wrap">
+                <svg class="skill-radial-svg" viewBox="0 0 100 100">
+                  <circle class="skill-radial-bg" cx="50" cy="50" r="45"></circle>
+                  <circle class="skill-radial-progress" cx="50" cy="50" r="45" data-percent="80"></circle>
+                </svg>
+                <div class="skill-radial-text">80%</div>
+              </div>
+              <h4>Marketing &amp; Ads</h4>
+              <p>Designing high-converting digital banners, seasonal promotional graphics, and departmental store visual
+                assets.</p>
+              <div class="skill-tags">
+                <span>Web Banners</span>
+                <span>Campaigns</span>
+                <span>Ad Layouts</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SELECTED WORKS SECTION -->
+  <section id="works" class="works">
+    <div class="container">
+      <!-- Selected Works Gallery -->
+      <div class="section-header">
+        <h3 class="section-title">Select <span class="gradient-text">Works</span></h3>
+      </div>
+
+      <!-- Works List Row-Based Layout -->
+      <ul id="work-list" class="work-list">
+        <!-- Work 1: NZXT Campaign & Packaging -->
+        <li class="project-card" data-category="graphics">
+          <a class="work-link project-view-details" data-modal="modal-nzxt" href="javascript:void(0)">
+            <div class="work-row-grid">
+
+              <!-- Title Column -->
+              <h2 class="work-title">
+                <span class="title-normal">NZXT Campaign &amp; Packaging</span>
+                <span class="title-italic" aria-hidden="true">NZXT Campaign &amp; Packaging</span>
+              </h2>
+
+              <!-- Desktop Skills Column -->
+              <div class="work-skills-col">
+                <ul class="skills-inline-list">
+                  <li class="skills-list-item">Packaging</li>
+                  <li class="skills-list-item">Branding</li>
+                  <li class="skills-list-item">Hardware</li>
+                </ul>
+              </div>
+
+              <!-- Mobile Meta Column -->
+              <div class="work-mobile-meta">
+                <ul class="skills-inline-list">
+                  <li class="skills-list-item">Packaging</li>
+                  <li class="skills-list-item">Branding</li>
+                  <li class="skills-list-item">Hardware</li>
+                </ul>
+              </div>
+
+              <!-- Underline border indicator -->
+              <div class="work-border-line"></div>
+            </div>
+          </a>
+        </li>
+
+        <!-- Work 2: Mitsukoshi Retail Promos -->
+        <li class="project-card" data-category="graphics">
+          <a class="work-link project-view-details" data-modal="modal-mitsukoshi" href="javascript:void(0)">
+            <div class="work-row-grid">
+
+              <!-- Title Column -->
+              <h2 class="work-title">
+                <span class="title-normal">Mitsukoshi Visual Promotions</span>
+                <span class="title-italic" aria-hidden="true">Mitsukoshi Visual Promotions</span>
+              </h2>
+
+              <!-- Desktop Skills Column -->
+              <div class="work-skills-col">
+                <ul class="skills-inline-list">
+                  <li class="skills-list-item">Poster</li>
+                  <li class="skills-list-item">Flyer</li>
+                  <li class="skills-list-item">VisualCampaign</li>
+                </ul>
+              </div>
+
+              <!-- Mobile Meta Column -->
+              <div class="work-mobile-meta">
+                <ul class="skills-inline-list">
+                  <li class="skills-list-item">Poster</li>
+                  <li class="skills-list-item">Flyer</li>
+                  <li class="skills-list-item">VisualCampaign</li>
+                </ul>
+              </div>
+
+              <!-- Underline border indicator -->
+              <div class="work-border-line"></div>
+            </div>
+          </a>
+        </li>
+
+        <!-- Work 3: Li Ho Branding & Packaging -->
+        <li class="project-card" data-category="graphics">
+          <a class="work-link project-view-details" data-modal="modal-liho" href="javascript:void(0)">
+            <div class="work-row-grid">
+
+              <!-- Title Column -->
+              <h2 class="work-title">
+                <span class="title-normal">Li Ho Branding &amp; Packaging</span>
+                <span class="title-italic" aria-hidden="true">Li Ho Branding &amp; Packaging</span>
+              </h2>
+
+              <!-- Desktop Skills Column -->
+              <div class="work-skills-col">
+                <ul class="skills-inline-list">
+                  <li class="skills-list-item">Packaging</li>
+                  <li class="skills-list-item">Branding</li>
+                  <li class="skills-list-item">GraphicDesign</li>
+                </ul>
+              </div>
+
+              <!-- Mobile Meta Column -->
+              <div class="work-mobile-meta">
+                <ul class="skills-inline-list">
+                  <li class="skills-list-item">Packaging</li>
+                  <li class="skills-list-item">Branding</li>
+                  <li class="skills-list-item">GraphicDesign</li>
+                </ul>
+              </div>
+
+              <!-- Underline border indicator -->
+              <div class="work-border-line"></div>
+            </div>
+          </a>
+        </li>
+
+        <!-- Work 4: Fine Art Movie Sketches -->
+        <li class="project-card" data-category="drawings">
+          <a class="work-link project-view-details" data-modal="modal-drawings" href="javascript:void(0)">
+            <div class="work-row-grid">
+
+              <!-- Title Column -->
+              <h2 class="work-title">
+                <span class="title-normal">Movie Sketches Sketchbook</span>
+                <span class="title-italic" aria-hidden="true">Movie Sketches Sketchbook</span>
+              </h2>
+
+              <!-- Desktop Skills Column -->
+              <div class="work-skills-col">
+                <ul class="skills-inline-list">
+                  <li class="skills-list-item">FineArt</li>
+                  <li class="skills-list-item">Drawing</li>
+                  <li class="skills-list-item">AcrylicPaint</li>
+                </ul>
+              </div>
+
+              <!-- Mobile Meta Column -->
+              <div class="work-mobile-meta">
+                <ul class="skills-inline-list">
+                  <li class="skills-list-item">FineArt</li>
+                  <li class="skills-list-item">Drawing</li>
+                  <li class="skills-list-item">AcrylicPaint</li>
+                </ul>
+              </div>
+
+              <!-- Underline border indicator -->
+              <div class="work-border-line"></div>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+
+
+
+
+
+
+  <!-- NZXT Modal -->
+  <div class="project-modal" id="modal-nzxt">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close Modal">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+      <div class="modal-banner">
+        <img src="works/works ver.02.jpg" alt="NZXT Campaign & Packaging">
+      </div>
+      <div class="modal-body">
+        <div class="modal-tags">
+          <span class="tag">#Packaging</span>
+          <span class="tag">#Branding</span>
+          <span class="tag">#Hardware</span>
+          <span class="tag">#Layout</span>
+        </div>
+        <h3 class="modal-title">NZXT Campaign &amp; Packaging</h3>
+        <p class="modal-description">
+          <strong>Project Overview:</strong> Designed global marketing promotional assets, vector layout grids, and
+          retail package templates for NZXT hardware systems. Developed print-ready structural layouts and digital
+          promotional materials matching NZXT's minimalist gaming brand aesthetic.
+        </p>
+        <div class="modal-details-box">
+          <div class="contributions-section">
+            <h4>Key Contributions:</h4>
+            <p>
+              1. Developed vector layouts for hardware component packaging.<br>
+              2. Structured global marketing promotional banners and social media campaign visuals.<br>
+              3. Collaborated on typography systems ensuring consistent visual brand identity across digital and
+              physical mediums.
+            </p>
+          </div>
+          <div class="modal-meta-grid">
+            <div class="meta-col">
+              <h5>Role</h5>
+              <p>Graphic Designer</p>
+            </div>
+            <div class="meta-col">
+              <h5>Timeline</h5>
+              <p>2024-2026</p>
+            </div>
+            <div class="meta-col">
+              <h5>Deliverables</h5>
+              <p>Package Templates, Marketing Assets, Social Graphics</p>
+            </div>
+            <div class="meta-col">
+              <h5>Software</h5>
+              <p>Illustrator, Photoshop, Figma</p>
+            </div>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <a href="https://www.behance.net/gallery/248131423/works_vol02" class="btn btn-primary" target="_blank"
+            rel="noopener">View</a>
+          <button class="btn btn-secondary modal-close-btn">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mitsukoshi Modal -->
+  <div class="project-modal" id="modal-mitsukoshi">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close Modal">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+      <div class="modal-banner">
+        <img src="works/works ver.01.jpg" alt="Shin Kong Mitsukoshi Visual Promotions">
+      </div>
+      <div class="modal-body">
+        <div class="modal-tags">
+          <span class="tag">#Poster</span>
+          <span class="tag">#Flyer</span>
+          <span class="tag">#VisualCampaign</span>
+          <span class="tag">#Marketing</span>
+        </div>
+        <h3 class="modal-title">Shin Kong Mitsukoshi Visual Promotions</h3>
+        <p class="modal-description">
+          <strong>Project Overview:</strong> Crafted printed posters, flyers, online promotional images, and
+          marketing-related activities for Shin Kong Mitsukoshi Department Store. Managed complete layout systems for
+          seasonal retail sales campaigns, event spaces, and catalog guides.
+        </p>
+        <div class="modal-details-box">
+          <div class="contributions-section">
+            <h4>Key Contributions:</h4>
+            <p>
+              1. Designed and produced high-fidelity campaign posters and print flyers.<br>
+              2. Created high-converting online promotional graphics and website event slides.<br>
+              3. Engineered visual layout grids for print catalogs and booklets.
+            </p>
+          </div>
+          <div class="modal-meta-grid">
+            <div class="meta-col">
+              <h5>Role</h5>
+              <p>Graphic Designer</p>
+            </div>
+            <div class="meta-col">
+              <h5>Timeline</h5>
+              <p>2022-2024</p>
+            </div>
+            <div class="meta-col">
+              <h5>Deliverables</h5>
+              <p>Posters, Promotional Flyers, Digital Banners</p>
+            </div>
+            <div class="meta-col">
+              <h5>Software</h5>
+              <p>Photoshop, Illustrator, InDesign</p>
+            </div>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <a href="https://www.behance.net/gallery/205143299/works_vol01" class="btn btn-primary" target="_blank"
+            rel="noopener">View</a>
+          <button class="btn btn-secondary modal-close-btn">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Li Ho Modal -->
+  <div class="project-modal" id="modal-liho">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close Modal">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+      <div class="modal-banner">
+        <img src="works/liho.jpg" alt="Li Ho Branding & Packaging">
+      </div>
+      <div class="modal-body">
+        <div class="modal-tags">
+          <span class="tag">#Packaging</span>
+          <span class="tag">#Branding</span>
+          <span class="tag">#GraphicDesign</span>
+          <span class="tag">#Identity</span>
+        </div>
+        <h3 class="modal-title">Li Ho Branding &amp; Packaging</h3>
+        <p class="modal-description">
+          <strong>Project Overview:</strong> Designed the "Li Ho" (Taiwanese friendly greeting meaning "Hello") brand
+          identity and specialty gift box packaging. Developed a cohesive branding system combining traditional elements
+          of Taiwanese culture with modern design typography and packaging structures.
+        </p>
+        <div class="modal-details-box">
+          <div class="contributions-section">
+            <h4>Key Contributions:</h4>
+            <p>
+              1. Created structural box layout templates and visual wrapping labels.<br>
+              2. Developed custom hand-drawn vector assets and patterns representing warmth and hospitality.<br>
+              3. Designed typography systems and promotional materials for local Taiwanese products.
+            </p>
+          </div>
+          <div class="modal-meta-grid">
+            <div class="meta-col">
+              <h5>Role</h5>
+              <p>Branding &amp; Packaging Designer</p>
+            </div>
+            <div class="meta-col">
+              <h5>Timeline</h5>
+              <p>2012-2016</p>
+            </div>
+            <div class="meta-col">
+              <h5>Deliverables</h5>
+              <p>Gift Box Packaging, Visual Identity, Vector Assets</p>
+            </div>
+            <div class="meta-col">
+              <h5>Software</h5>
+              <p>Illustrator, Photoshop, InDesign</p>
+            </div>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <a href="https://www.behance.net/gallery/205141491/Li-Ho" class="btn btn-primary" target="_blank"
+            rel="noopener">View</a>
+          <button class="btn btn-secondary modal-close-btn">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Drawings Modal -->
+  <div class="project-modal" id="modal-drawings">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close Modal">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+      <div class="modal-banner">
+        <img src="works/drawings.jpg" alt="Movie Sketches Sketchbook">
+      </div>
+      <div class="modal-body">
+        <div class="modal-tags">
+          <span class="tag">#Drawing</span>
+          <span class="tag">#FineArt</span>
+          <span class="tag">#AcrylicPaint</span>
+        </div>
+        <h3 class="modal-title">Movie Sketches Sketchbook</h3>
+        <p class="modal-description">
+          <strong>Project Overview:</strong> Traditional hand-painted drawings on 10x10cm cardboards, capturing fleeting
+          visual snapshots and global movie scenes. Blending color palettes and layout composition of classic films into
+          compact, detailed cardboard art.
+        </p>
+        <div class="modal-details-box">
+          <div class="contributions-section">
+            <h4>Key Contributions:</h4>
+            <p>
+              1. Created 30+ physical cardboard acrylic paintings depicting classic cinematic frames.<br>
+              2. Explored color lighting and composition styles of world-class directors.<br>
+              3. Digitized and cataloged the collection for portfolio showcases.
+            </p>
+          </div>
+          <div class="modal-meta-grid">
+            <div class="meta-col">
+              <h5>Role</h5>
+              <p>Fine Artist &amp; Illustrator</p>
+            </div>
+            <div class="meta-col">
+              <h5>Timeline</h5>
+              <p>Ongoing / Personal Project</p>
+            </div>
+            <div class="meta-col">
+              <h5>Deliverables</h5>
+              <p>Acrylic Paintings, Hand-painted Cardboards</p>
+            </div>
+            <div class="meta-col">
+              <h5>Medium</h5>
+              <p>Cardboard, Acrylic, Pencil</p>
+            </div>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <a href="https://www.behance.net/gallery/206261361/Drawings" class="btn btn-primary" target="_blank"
+            rel="noopener">View</a>
+          <button class="btn btn-secondary modal-close-btn">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT FORM & FEEDBACK -->
+  <section class="contact" id="contact">
+    <div class="container">
+
+      <div class="contact-grid">
+        <div class="glass-panel contact-card">
+          <h3>Get In <span class="gradient-text">Touch</span></h3>
+          <div class="contact-methods">
+            <a href="mailto:tomaschen1994@gmail.com" target="_blank" rel="noopener" class="method-item">
+              <div class="method-icon">
+                <img src="icons/contact-icon-mail.svg" alt="Email">
+              </div>
+              <div class="method-text">
+                <h4>Email</h4>
+              </div>
+            </a>
+
+            <a href="https://www.behance.net/tomaschen1994tw" target="_blank" rel="noopener" class="method-item">
+              <div class="method-icon">
+                <img src="icons/contact-icon-behance.svg" alt="Behance">
+              </div>
+              <div class="method-text">
+                <h4>Behance</h4>
+              </div>
+            </a>
+
+            <a href="https://www.linkedin.com/in/chung-yi-chen" target="_blank" rel="noopener" class="method-item">
+              <div class="method-icon">
+                <img src="icons/contact-icon-linkedin.svg" alt="LinkedIn">
+              </div>
+              <div class="method-text">
+                <h4>LinkedIn</h4>
+              </div>
+            </a>
+
+            <a href="CV.pdf" download="Chung_Yi_Chen_CV.pdf" target="_blank" rel="noopener" class="method-item">
+              <div class="method-icon">
+                <img src="icons/contact-icon-download.svg" alt="CV">
+              </div>
+              <div class="method-text">
+                <h4>CV</h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-copy">
+        &copy; 2026 TomasChen & Antigravity Designed.
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
