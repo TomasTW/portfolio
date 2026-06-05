@@ -1,3 +1,3 @@
-I don't have coding experience; use an antigravity agent to build my personal portfolio website.
-Because I don't want to upload files twice every time I start a new design project, my project's "view" button will link to my Behance.
-Here is my old portfolio. I used Framer and Spline to try out a few cool scrolling animations.
+I don't have coding experience, so I am using an antigravity agent to build my personal portfolio website. 
+Because I don't want to upload files twice every time I start a new design project, the "view" button on my project cards will link to my Behance. 
+Here is my old portfolio:https://tomasportfolio.framer.website/ I used Framer and Spline to try out a few cool scrolling animations.
