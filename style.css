@@ -11,14 +11,14 @@
   --border-light: #2D2D2D14;
   --border-hover: #FEBF2433;
 
-  --primary: #febf24;
-  --secondary: #2D2D2D;
+  --brand-primary: #fecf24;
+  --brand-secondary: #2D2D2D;
   --text-main: #2D2D2D;
   --text-muted: #555555;
   --surface-primary: #EAE8E4;
 
   /* Gradients */
-  --grad-primary: linear-gradient(135deg, var(--primary) 0%, #ff8c00 100%);
+  --grad-primary: linear-gradient(135deg, var(--brand-primary) 0%, #ff8c00 100%);
   --grad-dark: linear-gradient(180deg, var(--surface-primary) 0%, var(--surface-primary) 100%);
 
   /* Typography */
@@ -134,7 +134,7 @@ p {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--primary);
+  background: var(--brand-primary);
 }
 
 /* ==========================================================================
@@ -241,7 +241,7 @@ p {
 .cursor-logo-svg {
   width: 100%;
   height: 100%;
-  color: var(--primary);
+  color: var(--brand-primary);
   display: block;
 }
 
@@ -266,7 +266,7 @@ body.cursor-out .cursor-logo {
 }
 
 .gradient-text {
-  color: var(--primary);
+  color: var(--brand-primary);
 }
 
 .container {
@@ -300,9 +300,9 @@ section {
 }
 
 .btn-primary {
-  background: var(--primary);
-  color: var(--secondary);
-  box-shadow: 0 8px 20px -6px #FEBF2466;
+  background: var(--brand-primary);
+  color: var(--brand-secondary);
+  box-shadow: 0 8px 20px -6px var(--brand-secondary);
 }
 
 .btn-primary:hover {
@@ -407,7 +407,7 @@ section {
 
 .hero-canvas-title em {
   font-style: italic;
-  color: var(--primary);
+  color: var(--brand-primary);
   -webkit-text-stroke: 0px;
 }
 
@@ -525,13 +525,13 @@ section {
   font-weight: var(--font-weight-body-large);
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: var(--primary);
+  color: var(--brand-primary);
   padding: 0 44px;
   flex-shrink: 0;
 }
 
 .marquee-ticker__sep {
-  color: var(--primary);
+  color: var(--brand-primary);
   font-size: 0.55rem;
   flex-shrink: 0;
   opacity: 0.9;
@@ -657,7 +657,7 @@ section {
   vertical-align: baseline;
   margin: 0 10px;
   display: inline-block;
-  color: var(--primary);
+  color: var(--brand-primary);
   cursor: none;
 }
 
@@ -732,7 +732,7 @@ section {
 
 .skill-radial-progress {
   fill: none;
-  stroke: var(--primary);
+  stroke: var(--brand-primary);
   stroke-dasharray: 283;
   /* 2 * PI * r (r=45) */
   stroke-dashoffset: 283;
@@ -742,11 +742,11 @@ section {
 }
 
 .skill-card:hover .skill-radial-svg {
-  filter: drop-shadow(0 0 8px var(--secondary));
+  filter: drop-shadow(0 0 8px var(--brand-secondary));
 }
 
 .skill-card:hover .skill-radial-progress {
-  stroke: var(--secondary);
+  stroke: var(--brand-secondary);
 }
 
 .skill-radial-text {
@@ -776,7 +776,7 @@ section {
 }
 
 .skill-card:hover h4 {
-  color: var(--secondary);
+  color: var(--brand-secondary);
 }
 
 .skill-card p {
@@ -798,7 +798,7 @@ section {
 
 .skill-tags span {
   font-size: 0.65rem;
-  color: var(--primary);
+  color: var(--brand-primary);
   background: #FEBF240D;
   border: 1px solid #FEBF241F;
   padding: 4px 10px;
@@ -811,7 +811,7 @@ section {
 .skill-card:hover .skill-tags span {
   background: #FEBF2414;
   border-color: #FEBF2440;
-  color: var(--secondary);
+  color: var(--brand-secondary);
   transform: translateY(-1px);
 }
 
@@ -954,7 +954,7 @@ section {
   width: 100%;
   font-style: italic;
   font-family: var(--font-head);
-  color: var(--primary);
+  color: var(--brand-primary);
   transform: translateY(100%);
 }
 
@@ -1017,7 +1017,7 @@ section {
 .work-link:hover .work-border-line {
   transform: scaleY(3);
   opacity: 0.85;
-  background-color: var(--primary);
+  background-color: var(--brand-primary);
 }
 
 .work-mobile-meta {
@@ -1096,7 +1096,7 @@ section {
 .modal-close:hover {
   background: rgba(45, 45, 45, 0.1);
   transform: rotate(90deg);
-  border-color: var(--primary);
+  border-color: var(--brand-primary);
 }
 
 .modal-close svg {
@@ -1117,8 +1117,8 @@ section {
 .modal-banner svg {
   width: 80px;
   height: 80px;
-  color: var(--primary);
-  filter: drop-shadow(0 0 10px var(--primary));
+  color: var(--brand-primary);
+  filter: drop-shadow(0 0 10px var(--brand-primary));
 }
 
 .modal-banner img {
@@ -1156,7 +1156,7 @@ section {
   font-family: var(--font-family-title-2xlargle), sans-serif;
   font-size: var(--font-size-title-2xlargle);
   font-weight: var(--font-weight-title-2xlargle);
-  color: var(--primary);
+  color: var(--brand-primary);
   margin-bottom: 15px;
 }
 
@@ -1296,19 +1296,19 @@ section {
 
 .method-item:hover {
   background: rgba(254, 191, 36, 0.05) !important;
-  border-color: var(--primary) !important;
+  border-color: var(--brand-primary) !important;
   transform: translateY(-2px);
 }
 
 .method-icon {
   width: 24px;
   height: 24px;
-  background: var(--secondary);
+  background: var(--brand-secondary);
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--primary);
+  color: var(--brand-primary);
 }
 
 .method-icon svg,
@@ -1345,7 +1345,7 @@ section {
   padding: 16px 24px;
   background: rgba(12, 13, 15, 0.95);
   border: 1px solid rgba(254, 191, 36, 0.3);
-  color: var(--secondary);
+  color: var(--brand-secondary);
   font-family: var(--font-head);
   font-weight: 600;
   font-size: 0.88rem;
@@ -1396,7 +1396,7 @@ footer {
 }
 
 .social-link:hover {
-  color: var(--primary);
+  color: var(--brand-primary);
   transform: translateY(-2px);
 }
 
@@ -1583,7 +1583,7 @@ footer {
 }
 
 .about-skills-sidebar .section-title .gradient-text {
-  color: var(--primary) !important;
+  color: var(--brand-primary) !important;
 }
 
 .about-skills-sidebar .skill-card {
@@ -1629,11 +1629,11 @@ footer {
 }
 
 .about-skills-sidebar .skill-card:hover .skill-radial-progress {
-  stroke: var(--primary) !important;
+  stroke: var(--brand-primary) !important;
 }
 
 .about-skills-sidebar .skill-card:hover .skill-radial-svg {
-  filter: drop-shadow(0 0 8px var(--primary)) !important;
+  filter: drop-shadow(0 0 8px var(--brand-primary)) !important;
 }
 
 .about-skills-sidebar .skill-tags span {
@@ -1644,7 +1644,7 @@ footer {
 
 .about-skills-sidebar .skill-card:hover .skill-tags span {
   background: #FEBF241A !important;
-  border-color: var(--primary) !important;
+  border-color: var(--brand-primary) !important;
   color: var(--text-main) !important;
 }
 
@@ -1689,7 +1689,7 @@ footer {
 }
 
 .contact .method-icon {
-  background: var(--secondary) !important;
+  background: var(--brand-secondary) !important;
   border: none !important;
   box-shadow: none !important;
   color: var(--surface-primary) !important;
