@@ -30,7 +30,7 @@
   --radius-lg: 16px;
   --radius-full: 360px;
 
-  --shadow-lg: 0 20px 25px -5px #2D2D2D, 0 10px 10px -5px #2D2D2D;
+  --shadow-lg: 0 20px 25px -5px #2D2D2D1A, 0 10px 10px -5px #2D2D2D0D;
   --shadow-neon: 0 4px 15px #FEBF244D;
 
   --transition-smooth: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -313,14 +313,14 @@ section {
 }
 
 .btn-secondary {
-  background: #2D2D2D;
+  background: #2D2D2D0D;
   color: var(--text-main);
   border: 1px solid var(--border-light);
   backdrop-filter: blur(8px);
 }
 
 .btn-secondary:hover {
-  background: #2D2D2D;
+  background: #2D2D2D1A;
   border-color: var(--border-hover);
   transform: scale(1.03) translateY(-1px);
 }
@@ -1614,7 +1614,7 @@ footer {
 }
 
 .about-skills-sidebar .skill-radial-bg {
-  stroke: #2D2D2D !important;
+  stroke: #2D2D2D0D !important;
 }
 
 .about-skills-sidebar .skill-radial-progress {
@@ -1642,7 +1642,7 @@ footer {
 
 .about-skills-sidebar .skill-tags span {
   color: var(--text-main) !important;
-  background: #2D2D2D !important;
+  background: #2D2D2D0D !important;
   border: 1px solid #2D2D2D1F !important;
 }
 
