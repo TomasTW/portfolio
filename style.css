@@ -363,10 +363,19 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: stretch;
   padding: 80px 160px 60px;
   pointer-events: none;
   z-index: 2;
+}
+
+.scroll-hint--top {
+  align-self: flex-start;
+}
+
+.scroll-hint--bottom {
+  align-self: flex-end;
+  align-items: flex-end;
 }
 
 .hero-intro-text {

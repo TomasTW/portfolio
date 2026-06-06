@@ -123,7 +123,7 @@
 
   // Map scroll → frame index
   const section = document.getElementById('hero');
-  const scrollHint = document.getElementById('scroll-hint');
+  const scrollHints = document.querySelectorAll('.scroll-hint');
   let hintHidden = false;
 
   function onScroll() {
@@ -148,12 +148,12 @@
     }
 
     // Hide scroll hint after user starts scrolling into the hero section
-    if (scrollHint) {
+    if (scrollHints.length) {
       if (progress > 0.05) {
-        scrollHint.classList.add('hidden');
+        scrollHints.forEach(hint => hint.classList.add('hidden'));
         hintHidden = true;
       } else if (progress < 0.02) {
-        scrollHint.classList.remove('hidden');
+        scrollHints.forEach(hint => hint.classList.remove('hidden'));
         hintHidden = false;
       }
     }
