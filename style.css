@@ -343,6 +343,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #FFFF66;
 }
 
 #hero-canvas {
@@ -352,6 +353,7 @@ section {
   width: 100vw !important;
   height: 100vh !important;
   display: block;
+  background-color: #FFFF66;
 }
 
 /* Overlay content sitting above the canvas */
