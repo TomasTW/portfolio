@@ -146,17 +146,6 @@
         });
       }
     }
-
-    // Hide scroll hint after user starts scrolling into the hero section
-    if (scrollHints.length) {
-      if (progress > 0.05) {
-        scrollHints.forEach(hint => hint.classList.add('hidden'));
-        hintHidden = true;
-      } else if (progress < 0.02) {
-        scrollHints.forEach(hint => hint.classList.remove('hidden'));
-        hintHidden = false;
-      }
-    }
   }
 
   window.addEventListener('scroll', onScroll, { passive: true });
