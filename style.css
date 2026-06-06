@@ -330,7 +330,7 @@ section {
   height: 600vh;
   padding: 0 !important;
   position: relative;
-  background: var(--surface-primary);
+  background: #FFFF66;
 }
 
 .hero-canvas-sticky {

@@ -8,7 +8,7 @@
 (function () {
   const FRAME_COUNT = 168;
   const FRAME_DIR = 'scrolling animation/';
-  const BG_COLOR = '#fffc67';
+  const BG_COLOR = '#FFFF66';
   // Pad frame index: 000 → 167
   function framePath(i) {
     const idx = String(i).padStart(3, '0');
