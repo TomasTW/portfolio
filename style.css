@@ -557,6 +557,11 @@ section {
     padding: 0 28px;
     letter-spacing: 2px;
   }
+
+  .scroll-hint span {
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+  }
 }
 
 /* ==========================================================================
