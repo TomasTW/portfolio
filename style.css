@@ -426,10 +426,10 @@ section {
 }
 
 .scroll-hint span {
-  font-family: var(--font-body);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 3px;
+  font-family: var(--font-family-body-large), sans-serif;
+  font-size: var(--font-size-body-large);
+  font-weight: var(--font-weight-body-large);
+  letter-spacing: 1px;
   text-transform: uppercase;
   color: var(--text-main);
   writing-mode: horizontal-tb;
@@ -438,9 +438,7 @@ section {
 .scroll-hint-line {
   width: 1px;
   height: 50px;
-  background: linear-gradient(to bottom, var(--text-main), transparent);
-  animation: scrollLineGrow 1.5s ease-in-out infinite;
-  transform-origin: top;
+  background: var(--text-main);
 }
 
 @keyframes scrollLineGrow {
@@ -480,7 +478,7 @@ section {
 
 
 /* ==========================================================================
-   MARQUEE TICKER — awwwards-style scrolling banner
+   MARQUEE TICKER banner
    ========================================================================== */
 .marquee-ticker {
   position: absolute;
