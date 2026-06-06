@@ -8,8 +8,8 @@
   /* Color Palette (Aligned with Tokens.json and Primitives.json - Light Theme) */
   --bg-dark: #EAE8E4;
   --bg-card-solid: #EAE8E4;
-  --border-light: rgba(45, 45, 45, 0.08);
-  --border-hover: rgba(254, 191, 36, 0.2);
+  --border-light: #2D2D2D14;
+  --border-hover: #FEBF2433;
 
   --primary: #febf24;
   --secondary: #2D2D2D;
@@ -581,7 +581,7 @@ section {
   position: relative;
   overflow: hidden;
   background-color: var(--surface-primary);
-  color: #2D2D2D;
+  color: var(--text-main);
 }
 
 .about-grid {
@@ -640,7 +640,7 @@ section {
   line-height: 1;
   letter-spacing: -1.5px;
   margin-bottom: 0;
-  color: #2D2D2D;
+  color: var(--text-main);
 }
 
 .about-title {
@@ -666,7 +666,7 @@ section {
   font-size: var(--font-size-body-large);
   font-weight: var(--font-weight-body-large);
   line-height: 1.6;
-  color: #2D2D2D;
+  color: var(--text-main);
   max-width: 100%;
   margin-bottom: 0;
 }
@@ -822,7 +822,7 @@ section {
   padding: 40px 40px;
   position: relative;
   background-color: var(--surface-primary);
-  color: #2D2D2D;
+  color: var(--text-main);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1579,7 +1579,7 @@ footer {
 }
 
 .about-skills-sidebar .section-title {
-  color: #2D2D2D !important;
+  color: var(--text-main) !important;
 }
 
 .about-skills-sidebar .section-title .gradient-text {
@@ -1590,7 +1590,7 @@ footer {
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
-  color: #2D2D2D !important;
+  color: var(--text-main) !important;
   width: 100% !important;
   height: 100% !important;
 }
@@ -1601,20 +1601,20 @@ footer {
 }
 
 .about-skills-sidebar .skill-card h4 {
-  color: #2D2D2D !important;
+  color: var(--text-main) !important;
 }
 
 .about-skills-sidebar .skill-card p {
-  color: #555555 !important;
+  color: var(--text-muted) !important;
   margin: 0px !important;
 }
 
 .about-skills-sidebar .skill-radial-bg {
-  stroke: rgba(45, 45, 45, 0.05) !important;
+  stroke: #2D2D2D0D !important;
 }
 
 .about-skills-sidebar .skill-radial-progress {
-  stroke: #2D2D2D !important;
+  stroke: var(--text-main) !important;
 }
 
 .about-skills-sidebar .skill-radial-svg {
@@ -1622,7 +1622,7 @@ footer {
 }
 
 .about-skills-sidebar .skill-radial-text {
-  background: #2D2D2D !important;
+  background: var(--text-main) !important;
   -webkit-background-clip: text !important;
   background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
@@ -1637,34 +1637,34 @@ footer {
 }
 
 .about-skills-sidebar .skill-tags span {
-  color: #2D2D2D !important;
-  background: rgba(45, 45, 45, 0.05) !important;
-  border: 1px solid rgba(45, 45, 45, 0.12) !important;
+  color: var(--text-main) !important;
+  background: #2D2D2D0D !important;
+  border: 1px solid #2D2D2D1F !important;
 }
 
 .about-skills-sidebar .skill-card:hover .skill-tags span {
-  background: rgba(254, 191, 36, 0.1) !important;
+  background: #FEBF241A !important;
   border-color: var(--primary) !important;
-  color: #2D2D2D !important;
+  color: var(--text-main) !important;
 }
 
 .contact {
-  background-color: #EAE8E4 !important;
-  background: #EAE8E4 !important;
-  color: #2D2D2D !important;
+  background-color: var(--surface-primary) !important;
+  background: var(--surface-primary) !important;
+  color: var(--text-main) !important;
   padding: 40px 40px;
   border: 0 !important;
 }
 
 .contact .section-title {
-  color: #2D2D2D !important;
+  color: var(--text-main) !important;
 }
 
 .contact .contact-card {
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
-  color: #2D2D2D !important;
+  color: var(--text-main) !important;
 }
 
 .contact .contact-card:hover {
@@ -1673,19 +1673,19 @@ footer {
 }
 
 .contact .contact-card h3 {
-  color: #2D2D2D !important;
+  color: var(--text-main) !important;
 }
 
 .contact .contact-card p {
-  color: #555555 !important;
+  color: var(--text-muted) !important;
 }
 
 .contact .method-text h4 {
-  color: #2D2D2D !important;
+  color: var(--text-main) !important;
 }
 
 .contact .method-text p {
-  color: #555555 !important;
+  color: var(--text-muted) !important;
 }
 
 .contact .method-icon {
