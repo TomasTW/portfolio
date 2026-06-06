@@ -257,6 +257,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (titleDividerLogo) {
     titleDividerLogo.addEventListener('mouseenter', () => {
+      if (window.innerWidth <= 1024) return;
       isLogoCursorActive = !isLogoCursorActive;
       if (isLogoCursorActive) {
         document.body.classList.add('use-logo-cursor');
@@ -267,6 +268,13 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   document.addEventListener('mousemove', (e) => {
+    if (window.innerWidth <= 1024) {
+      if (isLogoCursorActive) {
+        isLogoCursorActive = false;
+        document.body.classList.remove('use-logo-cursor');
+      }
+      return;
+    }
     if (isLogoCursorActive) {
       cursorLogo.style.setProperty('--x', `${e.clientX}px`);
       cursorLogo.style.setProperty('--y', `${e.clientY}px`);
@@ -274,11 +282,15 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   document.addEventListener('mouseleave', () => {
-    document.body.classList.add('cursor-out');
+    if (window.innerWidth > 1024) {
+      document.body.classList.add('cursor-out');
+    }
   });
 
   document.addEventListener('mouseenter', () => {
-    document.body.classList.remove('cursor-out');
+    if (window.innerWidth > 1024) {
+      document.body.classList.remove('cursor-out');
+    }
   });
 
 
@@ -365,7 +377,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================================================
   // 7. SCROLL REVEAL — staggered IntersectionObserver
   // ==========================================================================
-  const revealElements = document.querySelectorAll('.reveal-up, .reveal-right');
+  const revealElements = document.querySelectorAll('.reveal-up, .reveal-right, .about-content');
 
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
