@@ -72,6 +72,8 @@ html {
   font-family: var(--font-body);
   font-size: 16px;
   overflow-x: clip;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 body {
@@ -80,6 +82,8 @@ body {
   background: var(--grad-dark);
   min-height: 100vh;
   line-height: 1.6;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 h1 {
