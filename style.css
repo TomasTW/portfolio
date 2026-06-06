@@ -369,15 +369,6 @@ section {
   z-index: 2;
 }
 
-.scroll-hint--top {
-  align-self: flex-start;
-}
-
-.scroll-hint--bottom {
-  align-self: flex-end;
-  align-items: flex-end;
-}
-
 .hero-intro-text {
   animation: heroCanvasReveal 1.2s cubic-bezier(0.25, 1, 0.5, 1) 0.4s both;
 }
@@ -448,6 +439,15 @@ section {
   width: 1px;
   height: 50px;
   background: var(--text-main);
+}
+
+.scroll-hint--top {
+  align-self: flex-start;
+}
+
+.scroll-hint--bottom {
+  align-self: flex-end;
+  align-items: flex-end;
 }
 
 @keyframes scrollLineGrow {
