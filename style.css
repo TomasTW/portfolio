@@ -302,12 +302,10 @@ section {
 .btn-primary {
   background: var(--brand-primary);
   color: var(--brand-secondary);
-  box-shadow: 0 8px 20px -6px var(--brand-secondary);
 }
 
 .btn-primary:hover {
   transform: scale(1.05) translateY(-2px);
-  box-shadow: var(--shadow-neon);
 }
 
 .btn-secondary {
