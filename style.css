@@ -1419,7 +1419,7 @@ footer {
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1440px) {
 
   section,
   .about,
@@ -1451,7 +1451,7 @@ footer {
   }
 }
 
-@media (max-width: 835px) {
+@media (max-width: 1024px) {
 
   section,
   .about,
