@@ -139,7 +139,7 @@ p {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--brand-primary);
+  background: var(--surface-primary);
 }
 
 /* ==========================================================================
@@ -335,7 +335,7 @@ section {
   height: 600vh;
   padding: 0 !important;
   position: relative;
-  background: #FFFF66;
+  background: var(--surface-primary);
 }
 
 .hero-canvas-sticky {
@@ -1451,7 +1451,7 @@ footer {
   }
 }
 
-@media (max-width: 769px) {
+@media (max-width: 835px) {
 
   section,
   .about,
@@ -1470,17 +1470,17 @@ footer {
   }
 }
 
-@media (max-width: 431px) {
+@media (max-width: 441px) {
 
   section,
   .about,
   .works,
   .contact {
-    padding: 32px 16px !important;
+    padding: 80px 16px !important;
   }
 
   footer {
-    padding: 40px 16px !important;
+    padding: 16px !important;
   }
 
   .container {
