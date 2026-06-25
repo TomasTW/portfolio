@@ -246,7 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (titleDividerLogo) {
     titleDividerLogo.addEventListener('mouseenter', () => {
-      if (window.innerWidth <= 1024) return;
+      if (window.innerWidth <= 1440) return;
       isLogoCursorActive = !isLogoCursorActive;
       if (isLogoCursorActive) {
         document.body.classList.add('use-logo-cursor');
