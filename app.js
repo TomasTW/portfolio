@@ -4,152 +4,87 @@
 
 /* ==========================================================================
    0. HERO SCROLL-SCRUBBED FRAME ANIMATION
+   Uses hero_section.svg inlined in the HTML.
+   Technique: CSS animation-play-state:paused + negative animation-delay
+   sets the exact frozen frame. Both are applied together on every scroll
+   tick so the browser recomputes the frame — reliable across all browsers.
    ========================================================================== */
 (function () {
-  const FRAME_COUNT = 168;
-  const FRAME_DIR = 'scrolling animation/';
-  const BG_COLOR = '#fffc67';
-  // Pad frame index: 000 → 167
-  function framePath(i) {
-    const idx = String(i).padStart(3, '0');
-    // Filenames use 0.041s delay; pick the right one
-    return `${FRAME_DIR}frame_${idx}_delay-0.041s.webp`;
-  }
+  const container = document.querySelector('.hero-canvas-sticky');
+  if (!container) return;
 
-  const canvas = document.getElementById('hero-canvas');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
+  function initHeroScroll(svgEl) {
+    if (!svgEl) return;
+    svgEl.id = 'hero-svg';
 
-  // Pre-load all frames with smart onload drawing
-  const frames = [];
-  let loadedCount = 0;
-  let currentFrame = 0;
-  let rafPending = false;
+    const DURATION_S = 3; // matches the 3s animation duration in hero_section.svg
+    const section = document.getElementById('hero');
 
-  // Size canvas buffer to match the true visible viewport (no scrollbar offset)
-  function resizeCanvas() {
-    canvas.width = document.documentElement.clientWidth;
-    canvas.height = window.innerHeight;
-    drawFrame(currentFrame);
-  }
-  window.addEventListener('resize', resizeCanvas);
-  resizeCanvas();
+    // Scale SVG to cover the full hero viewport (object-fit: cover)
+    svgEl.setAttribute('preserveAspectRatio', 'xMidYMid slice');
 
-  for (let i = 0; i < FRAME_COUNT; i++) {
-    const img = new Image();
-    let isLoaded = false;
+    // All animated elements in hero_section.svg
+    const targets = Array.from(svgEl.querySelectorAll(
+      '#Vector, #Vector_2, #Vector_3, #Vector_4, #Vector_5, #Vector_6, ' +
+      '#Vector_7, #Vector_8, #Vector_9, #Vector_10, #Vector_11, #Vector_12, #logo'
+    ));
+    if (!targets.length) return;
 
-    img.onload = () => {
-      if (isLoaded) return;
-      isLoaded = true;
-      loadedCount++;
-      console.log(`Loaded frame ${i}: ${img.src}`);
-      // If we loaded the frame currently in view, draw it immediately!
-      if (i === currentFrame) {
-        drawFrame(i);
-      } else if (loadedCount === 1 && currentFrame === 0) {
-        // As soon as *any* single frame loads first, render it as fallback so page isn't empty
-        drawFrame(0);
-      }
-    };
-
-    img.onerror = (err) => {
-      console.error(`Failed to load frame ${i} from path: ${framePath(i)}`, err);
-    };
-
-    img.src = framePath(i);
-
-    // If the image is cached, complete is true and naturalWidth is set
-    if (img.complete && img.naturalWidth) {
-      img.onload();
+    // Seek to a specific second in the animation.
+    // Setting BOTH play-state and delay together forces the browser to
+    // recalculate the frozen frame per the CSS spec.
+    function seekTo(seconds) {
+      const delay = `-${seconds.toFixed(3)}s`;
+      targets.forEach(el => {
+        el.style.animationPlayState = 'paused';
+        el.style.animationDelay = delay;
+      });
     }
 
-    frames.push(img);
-  }
+    // Freeze at frame 0 immediately — no auto-play flash
+    seekTo(0);
 
-  function drawFrame(index) {
-    let img = frames[index];
+    let rafId = null;
 
-    // Fallback: if requested frame isn't loaded, locate the nearest loaded frame!
-    if (!img || !img.complete || !img.naturalWidth) {
-      let fallbackIndex = -1;
+    function onScroll() {
+      if (rafId) return;
+      rafId = requestAnimationFrame(() => {
+        rafId = null;
+        if (!section) return;
 
-      // Search backwards first (most likely to represent accurate past state)
-      for (let j = index - 1; j >= 0; j--) {
-        if (frames[j] && frames[j].complete && frames[j].naturalWidth) {
-          fallbackIndex = j;
-          break;
-        }
-      }
+        const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+        const sectionHeight = section.offsetHeight - window.innerHeight;
+        const scrolled = Math.max(0, window.scrollY - sectionTop);
+        const progress = sectionHeight > 0 ? Math.min(1, scrolled / sectionHeight) : 0;
 
-      // Search forwards if no loaded frame found backwards
-      if (fallbackIndex === -1) {
-        for (let j = index + 1; j < FRAME_COUNT; j++) {
-          if (frames[j] && frames[j].complete && frames[j].naturalWidth) {
-            fallbackIndex = j;
-            break;
-          }
-        }
-      }
-
-      if (fallbackIndex !== -1) {
-        img = frames[fallbackIndex];
-      } else {
-        return; // No frames loaded yet
-      }
+        // Clamp to DURATION_S - 0.001s to prevent -3.0s % 3.0s wrap-around back to frame 0
+        const seekTime = Math.min(DURATION_S - 0.001, progress * DURATION_S);
+        seekTo(seekTime);
+      });
     }
 
-    const cw = canvas.width;
-    const ch = canvas.height;
-    const iw = img.naturalWidth;
-    const ih = img.naturalHeight;
-
-    // Source-crop cover: crop the image to match the canvas aspect ratio,
-    // then stretch it to fill the canvas exactly — no letterboxing ever.
-    ctx.fillStyle = BG_COLOR;
-    ctx.fillRect(0, 0, cw, ch);
-
-    // "Contain" fit: scale the WHOLE frame down to fit inside the canvas without
-    // cropping, then center it. The full animation stays visible on every device
-    // (landscape, portrait, tablet, etc.) regardless of screen aspect ratio.
-    const scale = Math.min(cw / iw, ch / ih);
-    const drawW = iw * scale;
-    const drawH = ih * scale;
-    const dx = (cw - drawW) / 2;
-    const dy = (ch - drawH) / 2;
-
-    ctx.drawImage(img, 0, 0, iw, ih, dx, dy, drawW, drawH);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll(); // sync to current scroll position on load
   }
 
-  // Map scroll → frame index
-  const section = document.getElementById('hero');
-  const scrollHints = document.querySelectorAll('.scroll-hint');
-  let hintHidden = false;
-
-  function onScroll() {
-    if (!section) return;
-
-    const sectionTop = section.getBoundingClientRect().top + window.scrollY;
-    const sectionHeight = section.offsetHeight - window.innerHeight;
-    const scrolled = Math.max(0, window.scrollY - sectionTop);
-    const progress = sectionHeight > 0 ? Math.min(1, scrolled / sectionHeight) : 0;
-
-    const frameIndex = Math.min(FRAME_COUNT - 1, Math.floor(progress * FRAME_COUNT));
-
-    if (frameIndex !== currentFrame) {
-      currentFrame = frameIndex;
-      if (!rafPending) {
-        rafPending = true;
-        requestAnimationFrame(() => {
-          drawFrame(currentFrame);
-          rafPending = false;
-        });
-      }
-    }
+  // SVG is inlined in index.html — works on file:// with no fetch needed
+  const inlinedSvg = container.querySelector('svg');
+  if (inlinedSvg) {
+    initHeroScroll(inlinedSvg);
+    return;
   }
 
-  window.addEventListener('scroll', onScroll, { passive: true });
+  // Fallback: fetch for HTTP-served deployments
+  fetch('hero_section.svg')
+    .then(r => r.text())
+    .then(text => {
+      container.insertAdjacentHTML('afterbegin', text);
+      initHeroScroll(container.querySelector('svg'));
+    })
+    .catch(err => console.error('[Hero] SVG failed to load:', err));
 })();
+
+
 
 
 /* ==========================================================================
@@ -488,5 +423,230 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 3000);
   }
 
+  // --- About Skill Slider Navigation Module (Sticky Scroll-Driven & Gauge Fill) ---
+  (function initSkillSlider() {
+    const aboutSection = document.getElementById('about');
+    const slides = document.querySelectorAll('.skill-slide');
+    const dots = document.querySelectorAll('.pagination-dot');
+    const prevBtn = document.getElementById('about-prev-btn');
+    const nextBtn = document.getElementById('about-next-btn');
+
+    if (!aboutSection || !slides.length || !dots.length) return;
+
+    let currentIndex = 0;
+
+    // Set initial strokeDasharray on load
+    slides.forEach(slide => {
+      const circleProgress = slide.querySelector('.skill-gauge-progress');
+      if (circleProgress) {
+        const radius = 42;
+        const circumference = 2 * Math.PI * radius; // ~263.89
+        circleProgress.style.strokeDasharray = `${circumference}`;
+        circleProgress.style.strokeDashoffset = `${circumference}`;
+      }
+    });
+
+    function updateSliderState(progress) {
+      const position = progress * (slides.length - 1);
+      const activeIndex = Math.round(position);
+
+      currentIndex = activeIndex;
+
+      slides.forEach((slide, i) => {
+        // Clean up any previously set style properties so CSS handles opacity/transform
+        slide.style.opacity = '';
+        slide.style.transform = '';
+        slide.style.visibility = '';
+        slide.style.pointerEvents = '';
+
+        const circleProgress = slide.querySelector('.skill-gauge-progress');
+        const textElem = slide.querySelector('.skill-gauge-text');
+        
+        if (i === activeIndex) {
+          slide.classList.add('active');
+          if (circleProgress) {
+            const percent = parseInt(textElem ? textElem.textContent : '80', 10) || 80;
+            const radius = 42;
+            const circumference = 2 * Math.PI * radius;
+            const targetOffset = circumference * (1 - (percent / 100));
+            circleProgress.style.strokeDashoffset = `${targetOffset}`;
+          }
+        } else {
+          slide.classList.remove('active');
+          if (circleProgress) {
+            const radius = 42;
+            const circumference = 2 * Math.PI * radius;
+            circleProgress.style.strokeDashoffset = `${circumference}`;
+          }
+        }
+      });
+
+      dots.forEach((dot, i) => {
+        if (i === activeIndex) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+    }
+
+    function scrollByStep(targetIndex) {
+      if (targetIndex < 0) targetIndex = slides.length - 1;
+      if (targetIndex >= slides.length) targetIndex = 0;
+
+      const rect = aboutSection.getBoundingClientRect();
+      const absoluteTop = window.scrollY + rect.top;
+      const pinnedDistance = aboutSection.offsetHeight - window.innerHeight;
+
+      if (pinnedDistance > 0) {
+        const targetProgress = targetIndex / (slides.length - 1);
+        const targetY = absoluteTop + targetProgress * pinnedDistance;
+        window.scrollTo({ top: targetY, behavior: 'smooth' });
+      } else {
+        updateSliderState(targetIndex / (slides.length - 1));
+      }
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        scrollByStep(currentIndex - 1);
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        scrollByStep(currentIndex + 1);
+      });
+    }
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        scrollByStep(i);
+      });
+    });
+
+    function onScroll() {
+      const rect = aboutSection.getBoundingClientRect();
+      const pinnedDistance = aboutSection.offsetHeight - window.innerHeight;
+      if (pinnedDistance <= 0) return;
+
+      const scrolledInPin = -rect.top;
+      const progress = Math.max(0, Math.min(1, scrolledInPin / pinnedDistance));
+      updateSliderState(progress);
+    }
+
+    // Initialize slide 0
+    updateSliderState(0);
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+
+  // --- Works Slider Navigation Module (Sticky Scroll-Driven & Arrow/Dot Navigation) ---
+  (function initWorksSlider() {
+    const worksSection = document.getElementById('works');
+    const prevBtn = document.getElementById('works-prev-btn');
+    const nextBtn = document.getElementById('works-next-btn');
+    const slides = document.querySelectorAll('.works-slide');
+    const dots = document.querySelectorAll('.works-dot');
+    const activeTitle = document.getElementById('works-active-title');
+    const activeDesc = document.getElementById('works-active-description');
+
+    if (!worksSection || !slides.length || !dots.length) return;
+
+    let currentIndex = 0;
+
+    function updateSliderState(progress) {
+      const position = progress * (slides.length - 1);
+      const activeIndex = Math.round(position);
+
+      currentIndex = activeIndex;
+
+      slides.forEach((slide, i) => {
+        if (i === currentIndex) {
+          slide.classList.add('active');
+          if (activeTitle) activeTitle.textContent = slide.getAttribute('data-title') || '';
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+
+      dots.forEach((dot, i) => {
+        if (i === currentIndex) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+    }
+
+    function scrollByStep(targetIndex) {
+      if (targetIndex < 0) targetIndex = slides.length - 1;
+      if (targetIndex >= slides.length) targetIndex = 0;
+
+      const rect = worksSection.getBoundingClientRect();
+      const absoluteTop = window.scrollY + rect.top;
+      const pinnedDistance = worksSection.offsetHeight - window.innerHeight;
+
+      if (pinnedDistance > 0) {
+        const targetProgress = targetIndex / (slides.length - 1);
+        const targetY = absoluteTop + targetProgress * pinnedDistance;
+        window.scrollTo({ top: targetY, behavior: 'smooth' });
+      } else {
+        updateSliderState(targetIndex / (slides.length - 1));
+      }
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        scrollByStep(currentIndex - 1);
+      });
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        scrollByStep(currentIndex + 1);
+      });
+    }
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        scrollByStep(i);
+      });
+    });
+
+    // Make both the image and the EXPLORE button clickable to open the corresponding project modal
+    slides.forEach(slide => {
+      const clickables = slide.querySelectorAll('.works-image-wrapper, .works-explore-btn');
+      clickables.forEach(elem => {
+        elem.addEventListener('click', () => {
+          const index = parseInt(slide.getAttribute('data-index') || '0', 10);
+          const modalIds = ['modal-nzxt', 'modal-mitsukoshi', 'modal-liho', 'modal-drawings'];
+          const targetModal = document.getElementById(modalIds[index]);
+          if (targetModal) {
+            targetModal.classList.add('open');
+            document.body.style.overflow = 'hidden';
+          }
+        });
+      });
+    });
+
+    function onScroll() {
+      const rect = worksSection.getBoundingClientRect();
+      const pinnedDistance = worksSection.offsetHeight - window.innerHeight;
+      if (pinnedDistance <= 0) return;
+
+      const scrolledInPin = -rect.top;
+      const progress = Math.max(0, Math.min(1, scrolledInPin / pinnedDistance));
+      updateSliderState(progress);
+    }
+
+    // Initialize slide 0
+    updateSliderState(0);
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+
 });
+
 

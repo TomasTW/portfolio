@@ -1,0 +1,33 @@
+# API Keys & Environment Variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+*.pem
+*.key
+credentials.json
+client_secret*.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDEs and editors
+.vscode/
+.idea/
+.agents/
+.claude/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Temporary / Log files
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
